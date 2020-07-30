@@ -68,6 +68,6 @@ function getPairsThemesAndMarks (pairs, themesCopy) {
 const container=document.querySelector("#container");
 container.innerHTML=`
 <p>Student/Mark: ${giveStudentMark(studentsCopy)};</p>
-<p>finalResult: ${getPairsThemesAndMarks(pairs, themesCopy)};</p>
+<p>Final result: ${getPairsThemesAndMarks(pairs, themesCopy)};</p>
 
 `;
