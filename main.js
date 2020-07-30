@@ -1,7 +1,7 @@
 const students = ['Олександр', 'Ігор', 'Олена', 'Іра', 'Олексій', 'Світлана'];
 const themes = ['Диференційне рівня', 'Теорія автоманів', 'Алгоритми і структури даних'];
 const marks = [4, 5, 5, 3, 4, 5];
-let studentsCopy = [...students];
+const studentsCopy = [...students];
 let themesCopy = [...themes];
 let marksCopy = [...marks];
 let boys = [];
@@ -13,7 +13,7 @@ let studentsFinalResult = [];
 function getBoys(arr) {
 	for (i = 0; i <= studentsCopy.length - 1; i++){
 		if (studentsCopy[i] === 'Олександр' || studentsCopy[i] === 'Ігор' || studentsCopy[i] === 'Олексій'){
-			 let eachStudent = studentsCopy.slice(i, i + 1) + '';
+			 const eachStudent = studentsCopy.slice(i, i + 1) + '';
 			boys.push(eachStudent);
 			
 		} 
@@ -24,7 +24,7 @@ function getBoys(arr) {
 function getGirls(arr) {
 	for (i = 0; i <= studentsCopy.length - 1; i++){
 		if (studentsCopy[i] === 'Олена' || studentsCopy[i] === 'Іра' || studentsCopy[i] === 'Світлана'){
-			 let eachStudent = studentsCopy.slice(i, i + 1) + '';
+			 const eachStudent = studentsCopy.slice(i, i + 1) + '';
 			girls.push(eachStudent);
 			
 		} 
@@ -58,7 +58,7 @@ function giveStudentMark (a){
 function getPairsThemesAndMarks (pairs, themesCopy) {
 	 finalResult = [].concat(pairs);
 	for (i = 0; i <= finalResult.length - 1; i++){
-		let randomMark = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
+		const randomMark = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
 		finalResult[i].push(themesCopy[i], randomMark);
 		
 }
