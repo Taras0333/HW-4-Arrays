@@ -2,13 +2,19 @@ const students = ['Олександр', 'Ігор', 'Олена', 'Іра', 'О�
 const themes = ['Диференційне рівня', 'Теорія автоманів', 'Алгоритми і структури даних'];
 const marks = [4, 5, 5, 3, 4, 5];
 const studentsCopy = [...students];
-let themesCopy = [...themes];
-let marksCopy = [...marks];
+const themesCopy = [...themes];
+const marksCopy = [...marks];
 let boys = [];
 let girls = [];
 let pairs = [];
-let finalResult = [];
+let eachPair = [];
+let studentGender = [];
+let studentsEach = [];
+let studentsPlusTheme = [];
 let studentsMark = [];
+let studentsPlusThemeCopy = [];
+let eachStudentTheme = [];
+let eachStudentThemeString = [];
 let studentsFinalResult = [];
 function getBoys(arr) {
 	for (i = 0; i <= studentsCopy.length - 1; i++){
@@ -36,38 +42,62 @@ console.log(getBoys(studentsCopy));
 console.log(getGirls(studentsCopy));
 function getPairs (boys, girls) {
 	for (i = 0; i <= studentsCopy.length / 2 - 1; i++){
-		let eachPair = boys.slice(i, i + 1);
+		eachPair = boys.slice(i, i + 1);
+      
 		eachPair.push(girls[i]);
 		pairs.push(eachPair);
-		console.log(eachPair);
 	}
 	return pairs;
 }
-getPairs(boys, girls);
+
+console.log(getPairs(boys, girls));
+function getPairsThemes (pairs, themesCopy) {
+	 studentGenderArray = [...pairs];
+	for (i = 0; i <= studentGenderArray.length - 1; i++){
+		studentsEach = studentGenderArray.slice([i], [i + 1]);
+      let studentsGenderString = studentsEach.pop(-1);
+      
+      
+      studentsGenderString.push(themesCopy[i]);
+      studentsPlusTheme.push(studentsGenderString);
+      
+      
+		
+}
+	return studentsPlusTheme;
+}
+console.log(getPairsThemes(pairs, themesCopy))
 function giveStudentMark (a){
 	for (i = 0; i <= a.length - 1; i++){
 		let eachStudent = a.slice(i, i + 1);
 		eachStudent.push(marksCopy[i]);
 		studentsMark.push(eachStudent);
-		console.log(eachStudent);
 	}
 	return studentsMark;
 }
-
-
-function getPairsThemesAndMarks (pairs, themesCopy) {
-	 finalResult = [].concat(pairs);
-	for (i = 0; i <= finalResult.length - 1; i++){
+console.log(giveStudentMark(studentsCopy));
+function getPairsThemesAndMarks (studentsPlusThemeCopy, marksCopy) {
+	 studentsPlusThemeCopy = [...studentsPlusTheme];
+  console.log(studentsPlusThemeCopy);
+	for (i = 0; i <= studentsPlusThemeCopy.length - 1; i++){
 		const randomMark = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
-		finalResult[i].push(themesCopy[i], randomMark);
+		 eachStudentTheme = studentsPlusThemeCopy.slice([i], [i +1]);
+      eachStudentThemeString = eachStudentTheme.pop(-1);
+      eachStudentThemeString.push(randomMark);
+      console.log(eachStudentThemeString);
+      studentsFinalResult.push(eachStudentThemeString);
 		
 }
-	return finalResult;
+  return studentsFinalResult;
 }
+console.log(getPairsThemesAndMarks(studentsPlusThemeCopy, marksCopy));
 
 const container=document.querySelector("#container");
 container.innerHTML=`
-<p>Student/Mark: ${giveStudentMark(studentsCopy)};</p>
-<p>Final result: ${getPairsThemesAndMarks(pairs, themesCopy)};</p>
+<p>Students: ${students};</p>
+<p>Themes: ${themes};</p>
+<p>Marks: ${marks};</p>
+<p>Student/Mark: ${studentsMark};</p>
+<p>Final result: ${studentsFinalResult};</p>
 
 `;
