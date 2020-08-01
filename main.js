@@ -17,7 +17,7 @@ let eachStudentTheme = [];
 let eachStudentThemeString = [];
 let studentsFinalResult = [];
 function getBoys(arr) {
-	for (i = 0; i <= studentsCopy.length - 1; i++){
+	for (let i = 0; i <= studentsCopy.length - 1; i++){
 		if (studentsCopy[i] === 'Олександр' || studentsCopy[i] === 'Ігор' || studentsCopy[i] === 'Олексій'){
 			 const eachStudent = studentsCopy.slice(i, i + 1) + '';
 			boys.push(eachStudent);
@@ -28,7 +28,7 @@ function getBoys(arr) {
 
 }
 function getGirls(arr) {
-	for (i = 0; i <= studentsCopy.length - 1; i++){
+	for (let i = 0; i <= studentsCopy.length - 1; i++){
 		if (studentsCopy[i] === 'Олена' || studentsCopy[i] === 'Іра' || studentsCopy[i] === 'Світлана'){
 			 const eachStudent = studentsCopy.slice(i, i + 1) + '';
 			girls.push(eachStudent);
@@ -41,7 +41,7 @@ function getGirls(arr) {
 console.log(getBoys(studentsCopy));
 console.log(getGirls(studentsCopy));
 function getPairs (boys, girls) {
-	for (i = 0; i <= studentsCopy.length / 2 - 1; i++){
+	for (let i = 0; i <= studentsCopy.length / 2 - 1; i++){
 		eachPair = boys.slice(i, i + 1);
       
 		eachPair.push(girls[i]);
@@ -53,7 +53,7 @@ function getPairs (boys, girls) {
 console.log(getPairs(boys, girls));
 function getPairsThemes (pairs, themesCopy) {
 	 studentGenderArray = [...pairs];
-	for (i = 0; i <= studentGenderArray.length - 1; i++){
+	for (let i = 0; i <= studentGenderArray.length - 1; i++){
 		studentsEach = studentGenderArray.slice([i], [i + 1]);
       let studentsGenderString = studentsEach.pop(-1);
       
@@ -68,7 +68,7 @@ function getPairsThemes (pairs, themesCopy) {
 }
 console.log(getPairsThemes(pairs, themesCopy))
 function giveStudentMark (a){
-	for (i = 0; i <= a.length - 1; i++){
+	for (let i = 0; i <= a.length - 1; i++){
 		let eachStudent = a.slice(i, i + 1);
 		eachStudent.push(marksCopy[i]);
 		studentsMark.push(eachStudent);
@@ -79,7 +79,7 @@ console.log(giveStudentMark(studentsCopy));
 function getPairsThemesAndMarks (studentsPlusThemeCopy, marksCopy) {
 	 studentsPlusThemeCopy = [...studentsPlusTheme];
   console.log(studentsPlusThemeCopy);
-	for (i = 0; i <= studentsPlusThemeCopy.length - 1; i++){
+	for (let i = 0; i <= studentsPlusThemeCopy.length - 1; i++){
 		const randomMark = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
 		 eachStudentTheme = studentsPlusThemeCopy.slice([i], [i +1]);
       eachStudentThemeString = eachStudentTheme.pop(-1);
