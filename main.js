@@ -8,7 +8,7 @@ let boys = [];
 let girls = [];
 let pairs = [];
 let eachPair = [];
-let studentGender = [];
+let studentGenderArray = [];
 let studentsEach = [];
 let studentsPlusTheme = [];
 let studentsMark = [];
@@ -97,6 +97,7 @@ container.innerHTML=`
 <p>Students: ${students};</p>
 <p>Themes: ${themes};</p>
 <p>Marks: ${marks};</p>
+<p>Pairs: ${pairs};</p>
 <p>Student/Mark: ${studentsMark};</p>
 <p>Final result: ${studentsFinalResult};</p>
 
