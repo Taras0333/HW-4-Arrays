@@ -1,20 +1,12 @@
 const students = ['Олександр', 'Ігор', 'Олена', 'Іра', 'Олексій', 'Світлана'];
 const themes = ['Диференційне рівня', 'Теорія автоманів', 'Алгоритми і структури даних'];
 const marks = [4, 5, 5, 3, 4, 5];
-const studentsCopy = [...students];
-const themesCopy = [...themes];
-const marksCopy = [...marks];
-const boys = [];
-const girls = [];
-const pairs = [];
-const studentsPlusTheme = [];
-const studentsMark = [];
-const studentsFinalResult = [];
 function getBoys(arr) {
-	for (let i = 0; i <= studentsCopy.length - 1; i++){
+	const boys = [];
+	for (let i = 0; i < students.length; i++){
+
 		if (arr[i] === 'Олександр' || arr[i] === 'Ігор' || arr[i] === 'Олексій'){
-			 const eachStudent = arr.slice(i, i + 1) + '';
-			boys.push(eachStudent);
+			boys.push(arr[i]);
 			
 		} 
 	}
@@ -22,21 +14,21 @@ function getBoys(arr) {
 
 }
 function getGirls(arr) {
-	for (let i = 0; i <= studentsCopy.length - 1; i++){
+	const girls = [];
+	for (let i = 0; i < students.length; i++){
 		if (arr[i] === 'Олена' || arr[i] === 'Іра' || arr[i] === 'Світлана'){
-			 const eachStudent = arr.slice(i, i + 1) + '';
-			girls.push(eachStudent);
+			girls.push(arr[i]);
 			
 		} 
 	}
 	return girls;
 
 }
-getBoys(studentsCopy);
-getGirls(studentsCopy);
+
 function getPairs (boys, girls) {
 	let eachPair = '';
-	for (let i = 0; i <= studentsCopy.length / 2 - 1; i++){
+	const pairs = [];
+	for (let i = 0; i < students.length / 2; i++){
 
 		eachPair = boys.slice(i, i + 1);
 		eachPair.push(girls[i]);
@@ -46,12 +38,13 @@ function getPairs (boys, girls) {
 	return pairs;
 }
 
-getPairs(boys, girls);
+getPairs(getBoys(students) , getGirls(students));
 
 function getPairsThemes (pairs, themesCopy) {
+	const studentsPlusTheme = [];
 	 let studentGenderArray = [...pairs];
 	 let studentsGenderString = [];
-	for (let i = 0; i <= studentGenderArray.length - 1; i++){
+	for (let i = 0; i < studentGenderArray.length; i++){
 	const studentsEach = studentGenderArray.slice([i], [i + 1]);
        studentsGenderString.push(studentsEach.pop(studentsEach.length - 1));
       
@@ -65,17 +58,19 @@ function getPairsThemes (pairs, themesCopy) {
 }
 	return studentsPlusTheme;
 }
-getPairsThemes(pairs, themesCopy);
+getPairsThemes(getPairs(getBoys(students) , getGirls(students)) , themes);
 function giveStudentMark (students, marks){
-	for (let i = 0; i <= students.length - 1; i++){
+	const studentsMark = [];
+	for (let i = 0; i < students.length; i++){
 		let eachStudent = students.slice(i, i + 1);
 		eachStudent.push(marks[i]);
 		studentsMark.push(eachStudent);
 	}
 	return studentsMark;
 }
-giveStudentMark(studentsCopy, marksCopy);
+giveStudentMark(students, marks);
 function getPairsThemesAndMarks (studentsTheme, marks) {
+	const studentsFinalResult = [];
 	 let studentsPlusThemeCopy = [...studentsTheme];
 	 let eachStudentThemeArray = [];
 	for (let i = 0; i <= studentsPlusThemeCopy.length - 1; i++){
@@ -88,14 +83,14 @@ function getPairsThemesAndMarks (studentsTheme, marks) {
 }
   return studentsFinalResult;
 }
-getPairsThemesAndMarks(studentsPlusTheme, marksCopy);
+getPairsThemesAndMarks(getPairsThemes(getPairs(getBoys(students) , getGirls(students)) , themes) , marks);
 
 const container=document.querySelector("#container");
 container.innerHTML=`
 
-<p>Pairs: ${pairs};</p>
-<p>Student/Mark: ${studentsMark};</p>
-<p>Final result: ${studentsFinalResult};</p>
+<p>Pairs: ${getPairs(getBoys(students) , getGirls(students))};</p>
+<p>Student/Mark: ${giveStudentMark(students, marks)};</p>
+<p>Final result: ${getPairsThemesAndMarks(getPairsThemes(getPairs(getBoys(students) , getGirls(students)) , themes) , marks)};</p>
 
 `;
 
