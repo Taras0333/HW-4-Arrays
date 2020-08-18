@@ -37,9 +37,6 @@ function getPairs (boys, girls) {
 	}
 	return pairs;
 }
-
-getPairs(getBoys(students) , getGirls(students));
-
 function getPairsThemes (pairs, themesCopy) {
 	const studentsPlusTheme = [];
 	 let studentGenderArray = [...pairs];
@@ -68,7 +65,6 @@ function giveStudentMark (students, marks){
 	}
 	return studentsMark;
 }
-giveStudentMark(students, marks);
 function getPairsThemesAndMarks (studentsTheme, marks) {
 	const studentsFinalResult = [];
 	 let studentsPlusThemeCopy = [...studentsTheme];
@@ -83,8 +79,6 @@ function getPairsThemesAndMarks (studentsTheme, marks) {
 }
   return studentsFinalResult;
 }
-getPairsThemesAndMarks(getPairsThemes(getPairs(getBoys(students) , getGirls(students)) , themes) , marks);
-
 const container=document.querySelector("#container");
 container.innerHTML=`
 
