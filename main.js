@@ -79,6 +79,7 @@ function getPairsThemesAndMarks (studentsTheme, marks) {
 }
   return studentsFinalResult;
 }
+export default student;
 const container=document.querySelector("#container");
 container.innerHTML=`
 
